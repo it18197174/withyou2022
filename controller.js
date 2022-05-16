@@ -5,12 +5,13 @@ const fetchPredictionResult = async (temperature, heartRate, sleepingHours) => {
     bipolar: false,
   };
   if (temperature > 37) {
-    return "stress, anxiety & bipolar disorder";
+    obj.stress=true
+    obj.anxiety=true
+    obj.bipolar=true
   } else if (temperature <= 37 && temperature > 24) {
-    return "bipolar disorder";
-  } else {
-    return "no disease";
+    obj.bipolar=true
   }
+  return obj
 };
 
 exports.predictionResult = (req, res) => {
